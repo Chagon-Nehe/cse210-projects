@@ -21,6 +21,7 @@ class Program
 
         Resume resume = new Resume();
         resume._name = "Chawanangwa Gondwe";
+        
         resume._jobs.Add(job1);
         resume._jobs.Add(job2);
         //resume._jobs = new List<Job> { job1, job2 };
