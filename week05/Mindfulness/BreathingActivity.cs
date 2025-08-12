@@ -6,6 +6,10 @@ public class BreathingActivity : Activity
         : base(activityName, activityDescription, duration)
     {
     }
+    public BreathingActivity()
+        : base("Breathing", "Focus on your breath: An activity to help you relax", 5)
+    {
+    }
     public void Run()
     {
         DisplayStartMessage();

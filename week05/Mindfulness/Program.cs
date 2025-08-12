@@ -22,6 +22,7 @@ class Program
             {
                 case "1":
                     BreathingActivity breathingActivity = new BreathingActivity("Breathing", "Focus on your breath: An activity to help you relax", 5);
+                    
                     breathingActivity.Run();
 
                     break;
@@ -34,6 +35,7 @@ class Program
                 case "3":
                     // ListingActivity listingActivity
                     ListingActivity listingActivity = new ListingActivity("Listing", "List your thoughts", 5);
+
                     listingActivity.Run();
                     // listingActivity.Run();
                     break;

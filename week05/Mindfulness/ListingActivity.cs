@@ -18,6 +18,19 @@ public class ListingActivity : Activity
             "List how God has blessed you recently."
         };
     }
+    public ListingActivity()
+        : base("Listing", "List your thoughts", 5)
+    {
+        _count = 0;
+        _prompts = new List<string>
+        {
+            "List your favorite verses you have studied this week.",
+            "List your top 5 happy moments today.",
+            "List your goals for the next year.",
+            "List things you are grateful for.",
+            "List how God has blessed you recently."
+        };
+    }
     public string GetRandomPrompt()
     {
         Random random = new Random();

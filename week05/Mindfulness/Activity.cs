@@ -26,7 +26,9 @@ public class Activity
     }
     public void DisplayStartMessage()
     {
+
         Console.WriteLine($"Starting {_activityName} for {_duration} seconds.");
+        Console.WriteLine(_activityDescription);
     }
     public void DisplayEndMessage()
     {

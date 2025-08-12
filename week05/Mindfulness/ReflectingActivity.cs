@@ -24,6 +24,25 @@ public class ReflectingActivity : Activity
             "How can you apply what you learned in the future?"
         };
     }
+    public ReflectingActivity()
+        : base("Reflection", "Reflect on your thoughts to improve your Mental Health", 5)
+    {
+        _prompts = new List<string>
+        {
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you helped someone in need.",
+            "Think of a time when you learned something new."
+        };
+
+        _questions = new List<string>
+        {
+            "What did you learn from this experience?",
+            "How did this experience change you?",
+            "What would you do differently next time?",
+            "How can you apply what you learned in the future?"
+        };
+    }
     public string GetRandomPrompt()
     {
         Random random = new Random();
