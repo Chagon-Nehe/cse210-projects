@@ -48,10 +48,10 @@ public class Activity
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.WriteLine($"Countdown: {i} seconds remaining.");
+            Console.WriteLine($" {i}");
             System.Threading.Thread.Sleep(1000); // Simulate countdown
         }
-        Console.WriteLine("Countdown complete!");
+        
     }
 
 

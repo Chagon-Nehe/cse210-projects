@@ -11,17 +11,13 @@ public class BreathingActivity : Activity
         DisplayStartMessage();
         ShowSpinner(3);
         ShowCountdown(_duration);
-        Console.WriteLine($"Breathe in...");
-        ShowCountdown(5);
-        Console.WriteLine("Breathe out... ");
-        ShowSpinner(5);
-        Console.WriteLine("Breathe in... ");
-        ShowCountdown(5);
-        Console.WriteLine("Breathe out... ");
-        ShowSpinner(5);
-        Console.WriteLine("Breathe in... ");
-        ShowCountdown(5);
-        Console.WriteLine("Breathe out... ");
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine("Breathe in...");
+            ShowCountdown(5);
+            Console.WriteLine("Now Breathe out...");
+            ShowCountdown(5);
+        }
         ShowSpinner(5);
         DisplayEndMessage();
     }
