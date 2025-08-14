@@ -16,13 +16,25 @@ public class Activity
     {
         return _activityName;
     }
+    public void SetActivityName(string activityName)
+    {
+        _activityName = activityName;
+    }
     public string GetActivityDescription()
     {
         return _activityDescription;
     }
+    public void SetActivityDescription(string activityDescription)
+    {
+        _activityDescription = activityDescription;
+    }
     public int GetDuration()
     {
         return _duration;
+    }
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
     }
     public void DisplayStartMessage()
     {
