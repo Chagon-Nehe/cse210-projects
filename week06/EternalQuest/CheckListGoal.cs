@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-// ChecklistGoal class inherits from Goal.
+// A checklist goal that must be completed a certain number of times for a bonus.
 public class ChecklistGoal : Goal
 {
     private int _amountCompleted;
@@ -15,31 +15,48 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
-    // Override RecordEvent.
+    public ChecklistGoal(string name, string description, int points, int target, int bonus, int amountCompleted) : base(name, description, points)
+    {
+        _amountCompleted = amountCompleted;
+        _target = target;
+        _bonus = bonus;
+    }
+
     public override void RecordEvent()
     {
         if (!IsComplete())
         {
             _amountCompleted++;
+            Console.WriteLine($"You have recorded an event for this goal and earned {_points} points!");
+            if (_amountCompleted >= _target)
+            {
+                Console.WriteLine($"Congratulations! You have completed this goal and earned a bonus of {_bonus} points!");
+            }
+        }
+        else
+        {
+            Console.WriteLine("This goal is already completed.");
         }
     }
 
-    // Override IsComplete.
     public override bool IsComplete()
     {
         return _amountCompleted >= _target;
     }
 
-    // Override GetDetailsString to show progress.
     public override string GetDetailsString()
     {
         string status = IsComplete() ? "[X]" : "[ ]";
         return $"{status} {base.GetDetailsString()} -- Currently completed: {_amountCompleted}/{_target}";
     }
 
-    // Override GetStringRepresentation.
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal:{_shortName},{_description},{_points},{_bonus},{_target},{_amountCompleted}";
+        return $"ChecklistGoal:{GetName()},{GetDescription()},{_points},{_bonus},{_target},{_amountCompleted}";
+    }
+
+    internal int GetBonus()
+    {
+        throw new NotImplementedException();
     }
 }

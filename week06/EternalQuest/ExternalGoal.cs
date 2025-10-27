@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 // EternalGoal class inherits from Goal.
 public class EternalGoal : Goal

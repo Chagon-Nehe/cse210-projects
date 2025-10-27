@@ -1,0 +1,3 @@
+0
+SimpleGoal:work up early,be at work on time,4,False
+EternalGoal:read the bible,get inspired spiritually,10

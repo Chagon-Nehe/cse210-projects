@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
-// The base class for all goal types.
+using System.IO;
+
+// This is the base class for all goals.
+// It uses encapsulation to protect its data.
+// It defines abstract methods that must be implemented by derived classes.
 public abstract class Goal
 {
-    // Private member variables to encapsulate data.
     protected string _shortName;
     protected string _description;
-    protected int _points; // Protected to be accessible by derived classes.
+    protected int _points;
 
-    // Constructor for the base class.
     public Goal(string name, string description, int points)
     {
         _shortName = name;
@@ -16,18 +18,28 @@ public abstract class Goal
         _points = points;
     }
 
-    // Abstract methods that must be overridden by derived classes.
+    // Getters for the name and description.
+    public string GetName()
+    {
+        return _shortName;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    // Abstract methods to be overridden by derived classes, demonstrating polymorphism.
     public abstract void RecordEvent();
     public abstract bool IsComplete();
     public abstract string GetStringRepresentation();
-
-    // A virtual method that can be overridden but doesn't have to be.
+    
+    // Virtual method for displaying goal details, can be overridden.
     public virtual string GetDetailsString()
     {
         return $"{_shortName} ({_description})";
     }
 
-    // A getter for the points value.
+    // This method returns the points associated with the goal.
     public int GetPoints()
     {
         return _points;

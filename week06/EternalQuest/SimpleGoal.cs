@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Goals
 {
-    // SimpleGoal class inherits from Goal.
+    // A simple goal that can only be completed once.
     public class SimpleGoal : Goal
     {
         private bool _isComplete;
@@ -13,10 +13,22 @@ namespace Goals
             _isComplete = false;
         }
 
-        // Override the abstract methods.
+        public SimpleGoal(string name, string description, int points, bool isComplete) : base(name, description, points)
+        {
+            _isComplete = isComplete;
+        }
+
         public override void RecordEvent()
         {
-            _isComplete = true;
+            if (!_isComplete)
+            {
+                _isComplete = true;
+                Console.WriteLine($"Congratulations! You have completed the goal and earned {_points} points!");
+            }
+            else
+            {
+                Console.WriteLine("This goal has already been completed.");
+            }
         }
 
         public override bool IsComplete()
@@ -24,17 +36,15 @@ namespace Goals
             return _isComplete;
         }
 
-        // Override the GetDetailsString to show completion status.
         public override string GetDetailsString()
         {
-            string status = _isComplete ? "[X]" : "[ ]";
+            string status = IsComplete() ? "[X]" : "[ ]";
             return $"{status} {base.GetDetailsString()}";
         }
 
-        // Override GetStringRepresentation for saving to a file.
         public override string GetStringRepresentation()
         {
-            return $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";
+            return $"SimpleGoal:{GetName()},{GetDescription()},{_points},{_isComplete}";
         }
     }
 }
